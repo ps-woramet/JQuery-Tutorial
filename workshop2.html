@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input id="nameId" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input id ="passwordId" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button id="btnId" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    <script>
+        $(document).ready(function(){
+          $('#btnId').on('click', () => {
+            var pass = true;
+            if ($(nameId).val().length == 0){
+                pass = false
+                alert('please add name')
+                $('nameId').focus()
+            }else if ($(passwordId).val().length == 0){
+                pass = false
+                alert('please add password')
+                $('passwordId').focus()
+            }
+            if(pass){
+                alert('submit success')
+            }
+          })
+          
+          $("#btnId").click(function(event)
+            {
+                event.preventDefault(); 
+            });
+        });
+    </script>
+</body>
+</html>

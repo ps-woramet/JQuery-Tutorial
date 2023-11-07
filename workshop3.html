@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p>add to do list</p>
+    <div>
+        <input id="inputId" type="text">
+        <button id="buttonId">Add</button>
+    </div>
+    <ul id="render">
+    </ul>
+
+    <script>
+        var numlist = 0
+        function removelist(element){
+           console.log(element.id);
+           $('#'+element.id).remove()
+
+        }
+        $(document).ready(function(){
+            $('#buttonId').on('click', ()=>{
+                var checkLength = $('#inputId').val().length
+                console.log(checkLength);        
+                if (checkLength!=0){
+                    var htmlstr = '<li id="list' + numlist + '" onclick=removelist(this)>' + $('#inputId').val()+'</li>'
+                    $('#render').append(htmlstr)
+                }else{
+                    alert('plase add todolist')
+                }
+            })
+            
+        });
+    </script>
+</body>
+</html>
